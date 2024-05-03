@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TarjetaPokemonPage } from 'src/app/paginas/tarjeta-pokemon/tarjeta-pokemon.page';
+import { PokemonService } from 'src/app/servicios/pokemon.service';
+
 
 @Component({
   selector: 'app-item-pokemon',
@@ -9,11 +11,20 @@ import { TarjetaPokemonPage } from 'src/app/paginas/tarjeta-pokemon/tarjeta-poke
 export class ItemPokemonComponent implements OnInit {
 
   @Input() pokemon!: any;
+  sprite: string = "";
   pageTarjetaPokemon = TarjetaPokemonPage;
 
-  constructor() { }
+  constructor(public pokemonService: PokemonService) {
+  }
 
   ngOnInit() {
+    this.getSprite();
+  }
+
+  getSprite(){
+    this.pokemonService.getPokemon<any>(this.getId(this.pokemon.url)).subscribe((data) => {
+      this.sprite = data.sprites.front_default ? data.sprites.front_default : "https://ionicframework.com/docs/img/demos/thumbnail.svg";
+    });
   }
 
   getId(cad: string) {

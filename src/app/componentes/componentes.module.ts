@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { ListItemPokemonComponent } from './list-item-pokemon/list-item-pokemon.component';
 import { ItemPokemonComponent } from './item-pokemon/item-pokemon.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     EncabezadoComponent,
     BuscadorComponent,
     ListItemPokemonComponent,
-    ItemPokemonComponent
+    ItemPokemonComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ItemPokemonComponent } from './item-pokemon/item-pokemon.component';
     EncabezadoComponent,
     BuscadorComponent,
     ListItemPokemonComponent,
-    ItemPokemonComponent
+    ItemPokemonComponent,
+    FooterComponent
   ]
 })
 export class ComponentesModule { }

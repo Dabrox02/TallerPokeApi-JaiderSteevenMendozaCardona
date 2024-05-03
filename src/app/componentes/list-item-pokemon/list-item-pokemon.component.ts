@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { InfiniteScrollCustomEvent, createGesture } from '@ionic/angular';
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { PokemonService } from 'src/app/servicios/pokemon.service';
 
 @Component({
