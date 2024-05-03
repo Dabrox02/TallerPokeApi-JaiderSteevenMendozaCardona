@@ -8,7 +8,7 @@ import { PokemonService } from 'src/app/servicios/pokemon.service';
 })
 export class TarjetaPokemonPage implements OnInit {
 
-  @Input() urlPokemon!:string; 
+  @Input() idPokemon!:string; 
   pokemon:any;
 
   constructor(public pokemonService: PokemonService) {
@@ -19,7 +19,7 @@ export class TarjetaPokemonPage implements OnInit {
   }
 
   getPokemon(): void {
-    this.pokemonService.getPokemon<any>(this.urlPokemon).subscribe((data) => {
+    this.pokemonService.getPokemon<any>(this.idPokemon).subscribe((data) => {
       this.pokemon = data;
     });
   }

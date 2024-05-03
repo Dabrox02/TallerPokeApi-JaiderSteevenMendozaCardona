@@ -8,19 +8,43 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img alt="pokemon" [src]="pokemon ? pokemon.sprites.front_default : ''"  width="200px"/>
+  <ion-card *ngIf="pokemon">
+    <img alt="pokemon" [src]="pokemon.sprites.front_default"  width="200px"/>
     <ion-card-header>
-      <ion-card-title>{{pokemon ? capitalize(pokemon.name) : ""}}</ion-card-title>
+      <ion-card-title style="font-size: 2rem;">{{capitalize(pokemon.name)}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      <ion-list *ngIf="pokemon">
+      <ion-card-subtitle>Estadisticas</ion-card-subtitle>
+      <ion-item>
+        <ion-label>
+          <p>Peso</p><h2>{{pokemon.weight}} kg</h2>
+        </ion-label>
+      </ion-item>
+
+      <ion-list>
         <ion-item *ngFor="let stat of pokemon.stats">
           <ion-chip color="primary">{{ stat.stat.name.toUpperCase() }}</ion-chip>
           <ion-label style="font-weight: bolder;">{{ stat.base_stat }}</ion-label>
         </ion-item>
       </ion-list>
+
+      <ion-item>
+        <ion-label>
+          <p>Tipo</p>
+        </ion-label>
+        <ion-chip color="success" *ngFor="let type of pokemon.types">{{type.type.name}}</ion-chip>
+      </ion-item>
+
+
+      <ion-card-subtitle style="margin-top: 1rem;">Movimientos</ion-card-subtitle>
+      <ion-list>
+        <ion-item *ngFor="let move of pokemon.moves">
+          <ion-label style="font-weight: bolder;">{{capitalize(move.move.name)}}</ion-label>
+        </ion-item>
+      </ion-list>
+
+
     </ion-card-content>
   </ion-card>
 </ion-content>
