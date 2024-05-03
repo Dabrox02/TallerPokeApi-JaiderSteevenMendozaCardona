@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
+  pokemon:string = "";
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  pokemonBuscar($event: string) {
+    this.pokemon = $event;
   }
 
 }
