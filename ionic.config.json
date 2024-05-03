@@ -1,0 +1,7 @@
+{
+  "name": "parcial-app-moviles",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

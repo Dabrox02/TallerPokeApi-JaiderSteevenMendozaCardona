@@ -1,0 +1,7 @@
+<ion-item>
+  <ion-nav-link router-direction="forward" [component]="pageTarjetaPokemon" [componentProps]="{urlPokemon: getId(pokemon.url)}"
+    style="width: 100%; display: inline-block;cursor: pointer;">
+    <ion-label>{{getId(pokemon.url)}} -
+      {{capitalize(pokemon.name)}}</ion-label>
+  </ion-nav-link>
+</ion-item>

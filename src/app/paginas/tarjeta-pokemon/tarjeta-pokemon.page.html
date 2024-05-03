@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pokemon: {{pokemon ? capitalize(pokemon.name) : ""}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img alt="pokemon" [src]="pokemon ? pokemon.sprites.front_default : ''"  width="200px"/>
+    <ion-card-header>
+      <ion-card-title>{{pokemon ? capitalize(pokemon.name) : ""}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list *ngIf="pokemon">
+        <ion-item *ngFor="let stat of pokemon.stats">
+          <ion-chip color="primary">{{ stat.stat.name.toUpperCase() }}</ion-chip>
+          <ion-label style="font-weight: bolder;">{{ stat.base_stat }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
